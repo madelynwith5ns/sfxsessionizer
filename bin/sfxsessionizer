@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+session=""
+if [ $# -eq 1 ]; then
+    session="$1"
+else
+    session=$(find /mnt/stage/Git -mindepth 2 -maxdepth 2 -type d | wofi --show dmenu)
+fi
+
+if [ -z ${session} ]; then
+    exit 0
+fi
+
+if [ "$session" == "--prev" ]; then
+    session=$(cat ~/.local/share/sfxsessionizer/previous-session)
+fi
+
+session=$(basename "$session" | tr . _)
+
+curworkspace=$(swaymsg -t get_workspaces | jq '.[] | select(.focused==true) | .name' | cut -d: -f1 | cut -d\" -f2)
+oldsession=$(cat ~/.local/share/sfxsessionizer/current-session)
+
+mkdir -p ~/.local/share/sfxsessionizer/state/"$oldsession"
+echo "$curworkspace" > ~/.local/share/sfxsessionizer/state/"$oldsession"/workspace
+
+echo $session > ~/.local/share/sfxsessionizer/current-session
+
+if [ -f "$HOME/.local/share/sfxsessionizer/state/$session/workspace" ]; then
+    ~/.local/bin/sfxsessionizer-switch "$(cat ~/.local/share/sfxsessionizer/state/$session/workspace)"
+else
+    ~/.local/bin/sfxsessionizer-switch 1
+fi
+
+echo $oldsession > ~/.local/share/sfxsessionizer/previous-session

@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+session=$(cat ~/.local/share/sfxsessionizer/current-session)
+
+swaymsg workspace "$1: $session"

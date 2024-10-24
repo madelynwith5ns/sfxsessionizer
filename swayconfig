@@ -1,0 +1,29 @@
+# little sway config snippet for sfxsessionizer
+# this is what i use
+exec mkdir -pv ~/.local/share/sfxsessionizer
+exec echo Global > ~/.local/share/sfxsessionizer/current-session
+workspace "Global: 1"
+
+bindsym $mod+1 exec "~/.local/bin/sfxsessionizer-switch 1"
+bindsym $mod+2 exec "~/.local/bin/sfxsessionizer-switch 2"
+bindsym $mod+3 exec "~/.local/bin/sfxsessionizer-switch 3"
+bindsym $mod+4 exec "~/.local/bin/sfxsessionizer-switch 4"
+bindsym $mod+5 exec "~/.local/bin/sfxsessionizer-switch 5"
+bindsym $mod+6 exec "~/.local/bin/sfxsessionizer-switch 6"
+bindsym $mod+7 exec "~/.local/bin/sfxsessionizer-switch 7"
+bindsym $mod+8 exec "~/.local/bin/sfxsessionizer-switch 8"
+bindsym $mod+9 exec "~/.local/bin/sfxsessionizer-switch 9"
+bindsym $mod+0 exec "~/.local/bin/sfxsessionizer-switch 10"
+bindsym $mod+Shift+1 exec "~/.local/bin/sfxsessionizer-movewindow 1"
+bindsym $mod+Shift+2 exec "~/.local/bin/sfxsessionizer-movewindow 2"
+bindsym $mod+Shift+3 exec "~/.local/bin/sfxsessionizer-movewindow 3"
+bindsym $mod+Shift+4 exec "~/.local/bin/sfxsessionizer-movewindow 4"
+bindsym $mod+Shift+5 exec "~/.local/bin/sfxsessionizer-movewindow 5"
+bindsym $mod+Shift+6 exec "~/.local/bin/sfxsessionizer-movewindow 6"
+bindsym $mod+Shift+7 exec "~/.local/bin/sfxsessionizer-movewindow 7"
+bindsym $mod+Shift+8 exec "~/.local/bin/sfxsessionizer-movewindow 8"
+bindsym $mod+Shift+9 exec "~/.local/bin/sfxsessionizer-movewindow 9"
+bindsym $mod+Shift+0 exec "~/.local/bin/sfxsessionizer-movewindow 10"
+bindsym $mod+g exec "~/.local/bin/sfxsessionizer Global"
+bindsym $mod+p exec "~/.local/bin/sfxsessionizer --prev"
+bindsym $mod+Tab exec "~/.local/bin/sfxsessionizer"
